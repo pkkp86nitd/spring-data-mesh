@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.9</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.pankaj</groupId>
+    <artifactId>spring-data-mesh</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <antlr.version>4.13.0</antlr.version>
+        <apache-spark.version>3.5.0</apache-spark.version>
+        <hadoop.version>3.3.6</hadoop.version>
+        <junit-platform.version>5.9.2</junit-platform.version>
+        <mockito.version>4.11.0</mockito.version>
+        <jmh.version>1.36</jmh.version>
+        <parent.version>3.2.0</parent.version>
+        <jakarta-servlet.version>4.0.3</jakarta-servlet.version>
+        <jersey.version>2.36</jersey.version>
+
+    </properties>
+
+
+    <dependencies>
+
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.23</version> <!-- Use the latest version available -->
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+<!--            <version>3.2.1</version>-->
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-rest -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+<!--            <version>3.2.1</version>-->
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+<!--            <version>3.2.1</version>-->
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version> <!-- Use the desired version -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.13</artifactId>
+            <version>${apache-spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.13</artifactId>
+            <version>${apache-spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>${hadoop.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>${hadoop.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>${hadoop.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit-platform.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.24.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/jfree/jfreechart -->
+        <dependency>
+            <groupId>jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+
+     <build>
+         <plugins>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>3.8.0</version>
+             </plugin>
+<!--             <plugin>-->
+<!--                 <groupId>org.apache.maven.plugins</groupId>-->
+<!--                 <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                 <version>2.22.0</version>-->
+<!--                 <configuration>-->
+<!--                     <argLine>-->
+<!--                         &#45;&#45;illegal-access=permit-->
+<!--                     </argLine>-->
+<!--                 </configuration>-->
+<!--             </plugin>-->
+<!--             <plugin>-->
+<!--                 <groupId>org.apache.maven.plugins</groupId>-->
+<!--                 <artifactId>maven-failsafe-plugin</artifactId>-->
+<!--                 <version>2.22.0</version>-->
+<!--                 <configuration>-->
+<!--                     <argLine>-->
+<!--                         &#45;&#45;illegal-access=permit-->
+<!--                     </argLine>-->
+<!--                 </configuration>-->
+<!--                 <executions>-->
+<!--                     <execution>-->
+<!--                         <goals>-->
+<!--                             <goal>integration-test</goal>-->
+<!--                             <goal>verify</goal>-->
+<!--                         </goals>-->
+<!--                     </execution>-->
+<!--                 </executions>-->
+<!--             </plugin>-->
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-site-plugin</artifactId>
+                 <version>3.7.1</version>
+             </plugin>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-shade-plugin</artifactId>
+                 <version>3.3.0</version>
+                 <executions>
+                     <execution>
+                         <phase>package</phase>
+                         <goals>
+                             <goal>shade</goal>
+                         </goals>
+                         <configuration>
+                             <finalName>benchmarks</finalName>
+<!--                             <transformers>-->
+<!--                                 <transformer-->
+<!--                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                                     <mainClass>org.openjdk.jmh.Main</mainClass>-->
+<!--                                 </transformer>-->
+<!--                                 <transformer-->
+<!--                                         implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>-->
+<!--                             </transformers>-->
+                             <filters>
+                                 <filter>
+                                     <!--
+                                         Shading signed JARs will fail without this.
+                                         http://stackoverflow.com/questions/999489/invalid-signature-file-when-attempting-to-run-a-jar
+                                     -->
+                                     <artifact>*:*</artifact>
+                                     <excludes>
+                                         <exclude>META-INF/*.SF</exclude>
+                                         <exclude>META-INF/*.DSA</exclude>
+                                         <exclude>META-INF/*.RSA</exclude>
+                                     </excludes>
+                                 </filter>
+                             </filters>
+                         </configuration>
+                     </execution>
+                 </executions>
+             </plugin>
+
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-enforcer-plugin</artifactId>
+                 <version>3.4.1</version>
+                 <executions>
+                     <execution>
+                         <id>enforce-versions</id>
+                         <goals>
+                             <goal>enforce</goal>
+                         </goals>
+                         <configuration>
+                             <rules>
+                                 <!-- Enforce a specific version for ANTLR -->
+
+                                 <requireProperty>
+                                     <property>antlr.version</property>
+                                     <message>ANTLR version must be 4.13.0</message>
+                                     <regex>4\.13\.0</regex>
+                                 </requireProperty>
+                             </rules>
+                         </configuration>
+                     </execution>
+                 </executions>
+             </plugin>
+
+         </plugins>
+     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.3</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+</project>
