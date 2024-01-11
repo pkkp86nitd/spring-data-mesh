@@ -19,6 +19,8 @@ public class SparkConfig {
     public SparkSession sparkSession() {
         SparkConf conf = new SparkConf()
                 .setAppName(appName)
+                .set("spark.executor.extraJavaOptions", "--add-exports=java.base/sun.nio.ch=ALL-UNNAMED")
+                .set("spark.driver.extraJavaOptions", "--add-exports=java.base/sun.nio.ch=ALL-UNNAMED")
                 .setMaster(master); // Set your Spark master URL accordingly
         return SparkSession.builder().config(conf).getOrCreate();
     }
